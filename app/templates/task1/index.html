@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block headContent %}
+<title>Task1</title>
+<script src="{{ url_for('static', filename='js/task1/analytics.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/task1/style.css') }}">
+{% endblock %}
+
+{% block navbarOptions %}
+   <li class="nav-item">
+      <a class="nav-link" href="#section1">Section1</a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" href="#section2">Section2</a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" href="#section3">Section3</a>
+   </li>    
+{% endblock %}
+
+{% block bodyParamsBlock %} data-spy="scroll" data-target=".navbar" data-offset="50" {% endblock %}
+
+{% block bodyContent %}
+<div id="demo" class="row carousel slide" data-ride="carousel">
+
+   <!-- Indicators -->
+   <ul class="carousel-indicators">
+     <li data-target="#demo" data-slide-to="0" class="active"></li>
+     <li data-target="#demo" data-slide-to="1"></li>
+     <li data-target="#demo" data-slide-to="2"></li>
+   </ul>
+   
+   <!-- The slideshow -->
+   <div class="carousel-inner">
+     <div class="carousel-item active" id="carousel-item-1"></div>
+     <div class="carousel-item" id="carousel-item-2"></div>
+     <div class="carousel-item" id="carousel-item-3"></div>
+   </div>
+   
+   <!-- Left and right controls -->
+   <a class="carousel-control-prev" href="#demo" data-slide="prev">
+     <span class="carousel-control-prev-icon"></span>
+   </a>
+   <a class="carousel-control-next" href="#demo" data-slide="next">
+     <span class="carousel-control-next-icon"></span>
+   </a>
+</div>
+
+
+<div class="row" id="section1"></div>
+<div class="row" id="section2">
+   <div class="col articlesContainer">
+
+      {% if articles|length < 1 %}
+      <h4>There are no rows in DB table</h4>
+      {% else %}
+      <h4>Rows from DB table</h4>
+      {% for article in articles %}
+          <div class="articleCard">
+              <h2 class="articleTitle">{{ article.title }}</h2>
+              <div class="articleContent"><p>{{ article.content }}</p></div>
+          </div>
+      {% endfor %}
+  
+      {% endif %}
+   
+   </div>
+</div>
+<div class="row" id="section3"></div>
+{% endblock %}

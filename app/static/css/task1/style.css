@@ -1,0 +1,42 @@
+.articleCard{
+    margin: 15px 0;
+    padding: 10px;
+    position: relative;    
+    display: block;
+    overflow: auto;
+    border-left: 1px solid red;
+}
+
+.articleCard .articleContent{
+    clear: both;
+}
+
+.articlesContainer{
+    padding: 5%;
+}
+
+#section1{
+    background-color: aquamarine;
+}
+
+#section2{
+    background-color: coral;
+}
+
+#section3{
+    background-color: yellow;
+}
+
+.carousel-item{
+    height: 100vh;
+}
+
+#carousel-item-1{
+    background-color: violet;
+}
+#carousel-item-2{
+    background-color: yellow;
+}
+#carousel-item-3{
+    background-color: blue;
+}
